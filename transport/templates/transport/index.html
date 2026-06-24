@@ -7,7 +7,6 @@
         body { margin: 0; font-family: 'Arial', sans-serif; }
         .hero { 
             height: 100vh; 
-            /* Yahan 0.6 ko 0.2 kar diya hai taake image saaf dikhe */
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1551830820-2212351654a9?q=80&w=2000'); 
             background-size: cover; 
             background-position: center;
@@ -37,7 +36,7 @@
     <div class="hero">
         <h1>Experience Luxury Riyadh</h1>
         <p>Premium cars, professional drivers, and top-tier service.</p>
-        <a href="https://wa.me/966599181070" class="btn">Book Your Ride Now</a>
+        <a href="{% url 'book_ride' %}" class="btn">Book Your Ride Now</a>
     </div>
 
     <section class="services">

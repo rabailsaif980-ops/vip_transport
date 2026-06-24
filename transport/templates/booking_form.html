@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="card p-4 shadow" style="width: 350px;">
+        <h2 class="mb-4">Book Your Ride</h2>
+        <form action="{% url 'send_whatsapp' %}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label>Your Name</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label>Destination</label>
+                <input type="text" name="destination" class="form-control" placeholder="Where to go?" required>
+            </div>
+            <div class="mb-3">
+                <label>Select Car</label>
+                <select name="car" class="form-select">
+                    <option value="Luxury Sedan">Luxury Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Van">Van</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Confirm Booking</button>
+            <a href="/" class="btn btn-link text-danger d-block mt-2">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

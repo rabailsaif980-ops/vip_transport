@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h2 class="mb-4">Welcome to VIP Transport Services</h2>
+    <p class="lead">Premium quality rides at your fingertips.</p>
+    
+    <div class="mt-5">
+        <a href="{% url 'book_ride' %}" class="btn btn-primary btn-lg">Book Your Ride Now</a>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h3>Luxury</h3>
+                <p>Travel in style with our premium sedan fleet.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h3>Safe</h3>
+                <p>Verified drivers and well-maintained vehicles.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h3>Fast</h3>
+                <p>On-time arrivals and efficient service.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
