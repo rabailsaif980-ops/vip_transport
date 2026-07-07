@@ -1,32 +1,34 @@
 from django.shortcuts import render, redirect
+from .models import Car
 
 def index(request):
-    return render(request, 'index.html')
+    cars = Car.objects.all() 
+    return render(request, 'transport/index.html', {'cars': cars})
 
 def book_ride(request):
-    return render(request, 'booking_form.html')
+    return render(request, 'transport/booking_form.html')
 
 def send_whatsapp(request):
     if request.method == 'POST':
-        # User ka data utha rahe hain
         customer_name = request.POST.get('name')
-        destination = request.POST.get('destination')
-        car_type = request.POST.get('car')
+        contact_number = request.POST.get('phone')
+        pickup_location = request.POST.get('pickup')
+        dropoff_location = request.POST.get('destination')
         
-        # Professional variable names
         phone_number = "966599181070" 
         
-        # Professional message format
         message = (
-            f"New Booking Request%0A%0A"
-            f"Customer: {customer_name}%0A"
-            f"Destination: {destination}%0A"
-            f"Vehicle: {car_type}"
+            f"--- NEW BOOKING REQUEST ---%0A%0A"
+            f"Customer Name: {customer_name}%0A"
+            f"Contact Number: {contact_number}%0A"
+            f"Pick up Location: {pickup_location}%0A"
+            f"Drop off Location: {dropoff_location}"
         )
         
-        # WhatsApp URL
         whatsapp_url = f"https://wa.me/{phone_number}?text={message}"
-        
         return redirect(whatsapp_url)
-    
+        
     return redirect('book_ride')
+
+def contact(request):
+    return render(request, 'transport/contact.html')

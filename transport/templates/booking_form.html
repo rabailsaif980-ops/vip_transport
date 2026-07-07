@@ -1,30 +1,27 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<div class="d-flex justify-content-center">
-    <div class="card p-4 shadow" style="width: 350px;">
-        <h2 class="mb-4">Book Your Ride</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Your Ride</title>
+    <style>
+        body { font-family: sans-serif; padding: 50px; background: #f4f4f4; }
+        .form-container { background: white; padding: 30px; border-radius: 10px; max-width: 500px; margin: auto; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #25D366; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        .back-link { display: block; text-align: center; margin-top: 15px; text-decoration: none; color: #555; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Enter Booking Details</h2>
         <form action="{% url 'send_whatsapp' %}" method="POST">
             {% csrf_token %}
-            <div class="mb-3">
-                <label>Your Name</label>
-                <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
-            </div>
-            <div class="mb-3">
-                <label>Destination</label>
-                <input type="text" name="destination" class="form-control" placeholder="Where to go?" required>
-            </div>
-            <div class="mb-3">
-                <label>Select Car</label>
-                <select name="car" class="form-select">
-                    <option value="Luxury Sedan">Luxury Sedan</option>
-                    <option value="SUV">SUV</option>
-                    <option value="Van">Van</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-success w-100">Confirm Booking</button>
-            <a href="/" class="btn btn-link text-danger d-block mt-2">Cancel</a>
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="phone" placeholder="Contact Number" required>
+            <input type="text" name="pickup" placeholder="Pick up Location" required>
+            <input type="text" name="destination" placeholder="Drop off Location" required>
+            <button type="submit">Send Booking via WhatsApp</button>
         </form>
+        <a href="{% url 'index' %}" class="back-link">← Back to Home</a>
     </div>
-</div>
-{% endblock %}
+</body>
+</html>

@@ -1,19 +1,32 @@
 from django.db import models
 
-class Vehicle(models.Model):
-    name = models.CharField(max_length=100) # Gaadi ka naam (e.g., Toyota Corolla)
-    model = models.CharField(max_length=50)  # Model (e.g., 2024)
-    price_per_km = models.DecimalField(max_digits=10, decimal_places=2) # Rate
-    is_available = models.BooleanField(default=True) # Kya gaadi available hai?
+class Car(models.Model):
+    name = models.CharField(max_length=100)
+    brand = models.CharField(max_length=50)
+    exterior_image = models.ImageField(upload_to='cars/')
+    interior_image = models.ImageField(upload_to='cars/')
+    is_available = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
 
 class Booking(models.Model):
-    user_name = models.CharField(max_length=100)
-    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
-    destination = models.CharField(max_length=200)
-    booking_date = models.DateTimeField(auto_now_add=True)
+    BOOKING_TYPE = (
+        ('Trip', 'Per Trip'),
+        ('Hourly', 'Hourly Basis'),
+        ('12hrs', '12 Hours Full Day'),
+    )
+    
+    customer_name = models.CharField(max_length=100)
+    contact_number = models.CharField(max_length=20)
+    pickup_location = models.CharField(max_length=200)
+    dropoff_location = models.CharField(max_length=200)
+    booking_type = models.CharField(max_length=10, choices=BOOKING_TYPE)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    
+    # Ye change kiya hai taake user date khud select kar sake
+    booking_date = models.DateField() 
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user_name} - {self.vehicle.name}"
+        return f"{self.customer_name} - {self.car.name}"
