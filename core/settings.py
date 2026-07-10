@@ -121,3 +121,7 @@ import os
 # Media files ki settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = 'static/'
+STATIC_URL = 'static/'
+# Ye line folder ka path batati hai
+STATIC_ROOT = BASE_DIR / 'staticfiles'

@@ -1,0 +1,19 @@
+.card {
+    border: 1px solid #ddd !important;
+    border-radius: 15px !important;
+    width: 300px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+    margin: 10px !important;
+}
+
+.card img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+}
+
+.services-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+}
