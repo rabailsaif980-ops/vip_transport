@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Service, Vehicle, Booking
+from .models import Service, Vehicle, Booking, Gallery
 
 
 # ==========================
@@ -73,4 +73,22 @@ class BookingAdmin(admin.ModelAdmin):
 
     ordering = (
         "-booking_date",
+    )
+    # ==========================
+# GALLERY ADMIN
+# ==========================
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+
+    list_display = (
+        "title",
+    )
+
+    search_fields = (
+        "title",
+    )
+
+    ordering = (
+        "title",
     )

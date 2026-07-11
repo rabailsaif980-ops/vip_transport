@@ -15,135 +15,85 @@
 <style>
 
 body{
-
 background:#111;
-
 font-family:Arial, Helvetica, sans-serif;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 min-height:100vh;
-
 padding:30px;
-
 }
 
 .booking-box{
-
 background:white;
-
 width:100%;
-
-max-width:650px;
-
+max-width:700px;
 border-radius:20px;
-
 padding:40px;
-
 box-shadow:0 15px 40px rgba(0,0,0,.35);
-
 }
 
 .booking-box h2{
-
 text-align:center;
-
 font-weight:bold;
-
 margin-bottom:10px;
-
 }
 
 .booking-box p{
-
 text-align:center;
-
 color:#666;
-
 margin-bottom:30px;
-
 }
 
 .form-control{
-
 height:55px;
-
 border-radius:12px;
-
 margin-bottom:20px;
+}
 
+textarea.form-control{
+height:120px;
+resize:none;
+padding-top:15px;
 }
 
 .input-group-text{
-
 background:#d4af37;
-
 color:#111;
-
 border:none;
-
 width:55px;
-
 justify-content:center;
-
 font-size:18px;
-
 }
 
 .btn-book{
-
 width:100%;
-
 background:#d4af37;
-
 color:#111;
-
 font-weight:bold;
-
 padding:14px;
-
 border:none;
-
 border-radius:12px;
-
 font-size:18px;
-
 transition:.3s;
-
 }
 
 .btn-book:hover{
-
 background:#000;
-
 color:#fff;
-
 }
 
 .back-home{
-
 display:block;
-
 text-align:center;
-
 margin-top:20px;
-
 text-decoration:none;
-
 color:#000;
-
 font-weight:bold;
-
 }
 
 .back-home:hover{
-
 color:#d4af37;
-
 }
 
 </style>
@@ -165,70 +115,88 @@ Fill in your booking details and we'll contact you instantly on WhatsApp.
 {% csrf_token %}
 
 <div class="input-group">
-
 <span class="input-group-text">
-
 <i class="fa-solid fa-user"></i>
-
 </span>
-
-<input
-type="text"
-class="form-control"
-name="name"
-placeholder="Full Name"
-required>
-
+<input type="text" class="form-control" name="name" placeholder="Full Name" required>
 </div>
 
 <div class="input-group">
-
 <span class="input-group-text">
-
 <i class="fa-solid fa-phone"></i>
-
 </span>
-
-<input
-type="text"
-class="form-control"
-name="phone"
-placeholder="Phone Number"
-required>
-
+<input type="text" class="form-control" name="phone" placeholder="Phone Number / WhatsApp" required>
 </div>
 
 <div class="input-group">
-
 <span class="input-group-text">
-
 <i class="fa-solid fa-location-dot"></i>
+</span>
+<input type="text" class="form-control" name="pickup" placeholder="Pickup Location" required>
+</div>
 
+<div class="input-group">
+<span class="input-group-text">
+<i class="fa-solid fa-flag-checkered"></i>
+</span>
+<input type="text" class="form-control" name="destination" placeholder="Drop-off Location" required>
+</div>
+
+<div class="input-group">
+<span class="input-group-text">
+<i class="fa-solid fa-calendar-days"></i>
+</span>
+<input type="date" class="form-control" name="date" required>
+</div>
+
+<div class="input-group">
+<span class="input-group-text">
+<i class="fa-solid fa-clock"></i>
+</span>
+<input type="time" class="form-control" name="time" required>
+</div>
+
+<div class="input-group">
+<span class="input-group-text">
+<i class="fa-solid fa-car"></i>
 </span>
 
-<input
-type="text"
-class="form-control"
-name="pickup"
-placeholder="Pickup Location"
-required>
+<select class="form-control" name="vehicle" required>
+
+<option value="">Select Vehicle</option>
+
+<option>GMC Yukon</option>
+
+<option>Mercedes V Class</option>
+
+<option>Ford Taurus</option>
+
+<option>Hyundai Staria</option>
+
+<option>Toyota Hiace</option>
+
+<option>Mercedes S Class</option>
+
+</select>
 
 </div>
 
 <div class="input-group">
-
 <span class="input-group-text">
+<i class="fa-solid fa-users"></i>
+</span>
+<input type="number" class="form-control" name="passengers" placeholder="Number of Passengers" min="1" required>
+</div>
 
-<i class="fa-solid fa-flag-checkered"></i>
-
+<div class="input-group">
+<span class="input-group-text">
+<i class="fa-solid fa-pen"></i>
 </span>
 
-<input
-type="text"
+<textarea
 class="form-control"
-name="destination"
-placeholder="Drop-off Location"
-required>
+name="request"
+placeholder="Special Request (Optional)"></textarea>
 
 </div>
 

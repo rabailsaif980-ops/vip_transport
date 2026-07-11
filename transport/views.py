@@ -1,20 +1,21 @@
 from django.shortcuts import render, redirect
-from .models import Vehicle, Service
-
+from .models import Vehicle, Service, Gallery
+from urllib.parse import quote
 
 def index(request):
     vehicles = Vehicle.objects.all()
     services = Service.objects.all()
+    gallery = Gallery.objects.all()
 
     return render(
         request,
         'transport/index.html',
         {
             'vehicles': vehicles,
-            'services': services
+            'services': services,
+            'gallery': gallery,
         }
     )
-
 
 def book_ride(request):
     return render(request, 'transport/booking_form.html')
@@ -22,44 +23,52 @@ def book_ride(request):
 
 def send_whatsapp(request):
 
-    if request.method == 'POST':
+    if request.method == "POST":
 
-        customer_name = request.POST.get('name')
-        contact_number = request.POST.get('phone')
-        pickup_location = request.POST.get('pickup')
-        dropoff_location = request.POST.get('destination')
+        customer_name = request.POST.get("name")
+        contact_number = request.POST.get("phone")
+        pickup_location = request.POST.get("pickup")
+        dropoff_location = request.POST.get("destination")
 
-        travel_date = request.POST.get('travel_date')
-        pickup_time = request.POST.get('pickup_time')
-        vehicle = request.POST.get('vehicle')
-        passengers = request.POST.get('passengers')
-        special_request = request.POST.get('special_request')
+        travel_date = request.POST.get("date")
+        pickup_time = request.POST.get("time")
+        vehicle = request.POST.get("vehicle")
+        passengers = request.POST.get("passengers")
+        special_request = request.POST.get("request")
 
         phone_number = "966599181070"
 
-        message = (
-            f"🚖 *NEW VIP TRANSPORT BOOKING*%0A%0A"
-            f"👤 Name: {customer_name}%0A"
-            f"📞 Phone: {contact_number}%0A%0A"
+        message = f"""
+🚖 *NEW VIP TRANSPORT BOOKING*
 
-            f"📍 Pickup: {pickup_location}%0A"
-            f"📍 Drop-off: {dropoff_location}%0A%0A"
+👤 Name: {customer_name}
+📞 Phone: {contact_number}
 
-            f"📅 Travel Date: {travel_date}%0A"
-            f"⏰ Pickup Time: {pickup_time}%0A%0A"
+📍 Pickup Location:
+{pickup_location}
 
-            f"🚘 Vehicle: {vehicle}%0A"
-            f"👥 Passengers: {passengers}%0A%0A"
+🏁 Drop-off Location:
+{dropoff_location}
 
-            f"📝 Special Request:%0A{special_request}"
-        )
+📅 Pickup Date: {travel_date}
+🕒 Pickup Time: {pickup_time}
 
-        whatsapp_url = f"https://wa.me/{phone_number}?text={message}"
+🚘 Selected Vehicle:
+{vehicle}
+
+👥 Passengers:
+{passengers}
+
+📝 Special Request:
+{special_request if special_request else 'None'}
+"""
+
+        whatsapp_url = f"https://wa.me/{phone_number}?text={quote(message)}"
 
         return redirect(whatsapp_url)
 
-    return redirect('book_ride')
+    return redirect("book_ride")
 
 
 def contact(request):
-    return render(request, 'transport/contact.html')
+    return render(request, "transport/contact.html")
