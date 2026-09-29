@@ -1,19 +1,906 @@
-.card {
-    border: 1px solid #ddd !important;
-    border-radius: 15px !important;
-    width: 300px !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
-    margin: 10px !important;
+/* =========================================================
+PROFESSIONAL CHAUFFEUR SERVICE
+CLEAN RESPONSIVE STYLE.CSS
+========================================================= */
+
+/* =========================
+GENERAL
+========================= */
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
 }
 
-.card img {
-    width: 100% !important;
-    height: 200px !important;
-    object-fit: cover !important;
+html {
+width: 100%;
+max-width: 100%;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
+
+body {
+width: 100%;
+max-width: 100%;
+min-width: 0;
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+background: #f5f5f5;
+color: #222;
+overflow-x: hidden;
+}
+
+main,
+section,
+footer,
+nav {
+width: 100%;
+max-width: 100%;
+}
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.custom-nav {
+width: 100%;
+max-width: 100%;
+background: rgba(0, 0, 0, 0.95);
+z-index: 1000;
+overflow: hidden;
+}
+
+.custom-nav .container {
+width: 100%;
+max-width: 100%;
+}
+
+.navbar-brand {
+color: #ffc107 !important;
+font-size: 18px;
+font-weight: 700;
+line-height: 1.2;
+white-space: normal;
+min-width: 0;
+overflow-wrap: break-word;
+}
+
+.nav-link {
+color: white !important;
+}
+
+.nav-link:hover {
+color: #ffc107 !important;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero {
+width: 100%;
+max-width: 100%;
+min-height: 100vh;
+position: relative;
+background:
+url("/static/transport/images/hero.jpg")
+center center / cover no-repeat;
+overflow: hidden;
+}
+
+.overlay {
+width: 100%;
+max-width: 100%;
+min-height: 100vh;
+background: rgba(0, 0, 0, 0.60);
+display: flex;
+align-items: center;
+overflow: hidden;
+}
+
+.hero .container {
+width: 100%;
+max-width: 1140px;
+}
+
+.hero-content {
+width: 100%;
+max-width: 100%;
+min-width: 0;
+padding: 0 15px;
+text-align: center;
+color: white;
+}
+
+.hero-content h5 {
+margin-bottom: 20px;
+color: #ffc107;
+font-size: 22px;
+line-height: 1.4;
+letter-spacing: 2px;
+}
+
+.hero-content h1 {
+width: 100%;
+max-width: 900px;
+margin: 0 auto 25px;
+font-size: 48px;
+line-height: 1.2;
+font-weight: 700;
+overflow-wrap: break-word;
+}
+
+.hero-content p {
+width: 100%;
+max-width: 750px;
+margin: 20px auto;
+font-size: 18px;
+line-height: 1.7;
+overflow-wrap: break-word;
+}
+
+.hero-buttons {
+width: 100%;
+max-width: 100%;
+margin-top: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 15px;
+flex-wrap: wrap;
+}
+
+/* =========================
+FLEET
+========================= */
+
+.services {
+width: 100%;
+max-width: 100%;
+padding: 80px 0;
+background: #111;
+color: white;
+overflow: hidden;
 }
 
 .services-container {
+width: 100%;
+max-width: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: stretch;
+gap: 25px;
+}
+
+.vehicle-card {
+width: 300px;
+max-width: 100%;
+min-width: 0;
+padding: 15px;
+background: #1b1b1b;
+border-radius: 15px;
+text-align: center;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+overflow: hidden;
+}
+
+.image-wrapper {
+width: 100%;
+max-width: 100%;
+height: 200px;
+position: relative;
+overflow: hidden;
+border-radius: 12px;
+background: #fff;
+}
+
+.image-wrapper img {
+width: 100%;
+max-width: 100%;
+height: 200px;
+object-fit: cover;
+}
+
+.exterior-img,
+.interior-img {
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.vehicle-card h3 {
+margin-top: 15px;
+color: #ffc107;
+overflow-wrap: break-word;
+}
+
+.vehicle-info {
+color: #ddd;
+}
+
+.vehicle-features {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 8px;
+margin: 15px 0;
+}
+
+.vehicle-features span {
+padding: 5px 8px;
+border: 1px solid #555;
+border-radius: 5px;
+font-size: 13px;
+}
+
+/* =========================
+VEHICLE OVERLAY
+========================= */
+
+.vehicle-overlay {
+position: absolute;
+inset: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-end;
+padding: 20px;
+background: linear-gradient(
+transparent,
+rgba(0, 0, 0, 0.75)
+);
+color: white;
+}
+
+.vehicle-overlay h4 {
+margin: 0;
+}
+
+.vehicle-overlay p {
+margin: 5px 0 0;
+}
+
+/* =========================
+SERVICE CARDS
+========================= */
+
+.service-card {
+width: 100%;
+max-width: 100%;
+min-width: 0;
+padding: 20px;
+overflow: hidden;
+border-radius: 15px;
+background: white;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-img {
+display: block;
+width: 100%;
+max-width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 10px;
+margin: 0 auto 15px;
+}
+
+.service-card h3,
+.service-card p {
+overflow-wrap: break-word;
+}
+
+/* =========================
+REVIEW CARDS
+========================= */
+
+.card {
+width: 100% !important;
+max-width: 100% !important;
+min-width: 0 !important;
+margin: 10px 0 !important;
+padding: 20px;
+border: 1px solid #ddd !important;
+border-radius: 15px !important;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+box-sizing: border-box !important;
+overflow-wrap: break-word;
+}
+
+.card img {
+width: 100% !important;
+max-width: 100% !important;
+height: 200px !important;
+object-fit: cover !important;
+}
+
+/* =========================
+FAQ
+========================= */
+
+.accordion {
+width: 100%;
+max-width: 100%;
+}
+
+.accordion-item,
+.accordion-button,
+.accordion-body {
+max-width: 100%;
+overflow-wrap: break-word;
+}
+
+/* =========================
+GALLERY
+========================= */
+
+.gallery-img {
+display: block;
+width: 100%;
+max-width: 100%;
+height: 250px;
+object-fit: cover;
+border-radius: 12px;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer {
+width: 100%;
+max-width: 100%;
+padding: 60px 0 20px;
+background: #000;
+color: white;
+overflow: hidden;
+}
+
+footer a {
+color: white;
+text-decoration: none;
+}
+
+footer a:hover {
+color: #ffc107;
+}
+
+/* =========================
+WHATSAPP FLOAT
+========================= */
+
+.whatsapp-float {
+position: fixed;
+right: 20px;
+bottom: 20px;
+width: 55px;
+height: 55px;
+border-radius: 50%;
+background: #25d366;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 28px;
+text-decoration: none;
+z-index: 9999;
+}
+
+/* =========================
+TABLET
+========================= */
+
+@media (max-width: 992px) {
+
+```
+.hero-content h1 {
+    font-size: 42px;
+}
+
+.hero-content p {
+    font-size: 17px;
+}
+
+.vehicle-card {
+    width: 320px;
+}
+```
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+```
+.hero {
+    min-height: 100vh;
+}
+
+.overlay {
+    min-height: 100vh;
+}
+
+.hero-content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.hero-content h5 {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.hero-content h1 {
+    font-size: 34px;
+}
+
+.hero-content p {
+    font-size: 16px;
+}
+
+.vehicle-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.services-container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+```
+
+}
+
+/* =========================
+SMALL MOBILE
+========================= */
+
+@media (max-width: 576px) {
+
+```
+html,
+body {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+
+/* =========================
+   NAVBAR MOBILE FIX
+========================= */
+
+.custom-nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+.custom-nav .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+
     display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+.custom-nav .navbar-brand {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    max-width: calc(100% - 55px) !important;
+    min-width: 0 !important;
+
+    margin-right: 8px !important;
+
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.5px !important;
+
+    white-space: normal !important;
+    overflow: hidden !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+}
+
+.custom-nav .navbar-toggler {
+    flex: 0 0 45px !important;
+    width: 45px !important;
+    max-width: 45px !important;
+    min-width: 45px !important;
+    margin-left: auto !important;
+    padding: 5px 8px !important;
+}
+
+.custom-nav .navbar-collapse {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+.custom-nav .navbar-nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+}
+
+
+/* =========================
+   BOOTSTRAP CONTAINER
+========================= */
+
+.container,
+.container-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+
+/* =========================
+   HERO MOBILE
+========================= */
+
+.hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+.overlay {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+.hero .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center !important;
+    overflow: visible !important;
+}
+
+.hero-content h5 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    letter-spacing: 1px !important;
+
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+}
+
+.hero-content h1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    font-size: 28px !important;
+    line-height: 1.25 !important;
+
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+}
+
+.hero-content p {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+}
+
+.hero-buttons {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    gap: 12px !important;
+    margin-top: 25px !important;
+}
+
+.hero-buttons .btn,
+.hero-buttons a {
+    width: auto !important;
+    max-width: 100% !important;
+}
+
+
+/* =========================
+   FLEET MOBILE
+========================= */
+
+.services {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+.services .container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.services-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    gap: 20px !important;
+}
+
+.vehicle-card {
+    width: 100% !important;
+    max-width: 360px !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+}
+
+.image-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+
+/* =========================
+   SERVICE CARDS MOBILE
+========================= */
+
+.service-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+}
+
+
+/* =========================
+   REVIEW CARDS MOBILE
+========================= */
+
+.card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+}
+
+
+/* =========================
+   GALLERY MOBILE
+========================= */
+
+.gallery-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+
+/* =========================
+   ROW MOBILE
+========================= */
+
+.row {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.row > * {
+    min-width: 0 !important;
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+section,
+main,
+footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+}
+
+
+/* =========================
+   IMAGES
+========================= */
+
+img {
+    max-width: 100% !important;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp-float {
+    right: 12px !important;
+    bottom: 15px !important;
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 25px !important;
+}
+```
+
+}
+/* FINAL MOBILE SERVICES FIX */
+@media (max-width: 576px) {
+
+    .services,
+    section.py-5.bg-light {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    section.py-5.bg-light .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    section.py-5.bg-light .row {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    section.py-5.bg-light .col-lg-4,
+    section.py-5.bg-light .service-card {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    section.py-5.bg-light .service-img {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .navbar-brand {
+        max-width: 100% !important;
+        white-space: normal !important;
+    }
+}/* FINAL FIX - DISABLE AOS SIDE MOVEMENT ON MOBILE */
+@media (max-width: 576px) {
+
+    [data-aos] {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .aos-init,
+    .aos-animate {
+        transform: none !important;
+    }
+
+}
+/* FINAL FIX - STOP AOS MOVEMENT ON MOBILE */
+@media (max-width: 576px) {
+
+    section.py-5.bg-light[data-aos="fade-left"],
+    section.py-5.bg-light.aos-init,
+    section.py-5.bg-light.aos-animate {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+}
+/* MOBILE NAVBAR TEXT FIX */
+@media (max-width: 576px) {
+
+    .navbar-brand {
+        font-size: 13px !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        max-width: calc(100% - 55px) !important;
+        min-width: 0 !important;
+    }
+
+}
+/* FINAL MOBILE NAVBAR FIX */
+@media (max-width: 576px) {
+
+    .custom-nav .navbar-brand,
+    .navbar-brand {
+        display: block !important;
+        width: 100% !important;
+        max-width: calc(100% - 55px) !important;
+        min-width: 0 !important;
+
+        font-size: 13px !important;
+        line-height: 1.2 !important;
+
+        white-space: normal !important;
+        overflow: hidden !important;
+        overflow-wrap: anywhere !important;
+        word-break: break-word !important;
+
+        flex: 1 1 auto !important;
+    }
+
 }

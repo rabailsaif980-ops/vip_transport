@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Vehicle, Service, Gallery
 from urllib.parse import quote
 
+
 def index(request):
     vehicles = Vehicle.objects.all()
     services = Service.objects.all()
@@ -16,6 +17,7 @@ def index(request):
             'gallery': gallery,
         }
     )
+
 
 def book_ride(request):
     return render(request, 'transport/booking_form.html')
@@ -36,10 +38,10 @@ def send_whatsapp(request):
         passengers = request.POST.get("passengers")
         special_request = request.POST.get("request")
 
-        phone_number = "966599181070"
+        phone_number = "966548411113"
 
         message = f"""
-🚖 *NEW VIP TRANSPORT BOOKING*
+🚖 *NEW PROFESSIONAL CHAUFFEUR SERVICE BOOKING*
 
 👤 Name: {customer_name}
 📞 Phone: {contact_number}
